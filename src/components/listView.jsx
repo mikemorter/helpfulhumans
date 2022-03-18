@@ -23,11 +23,6 @@ class ListView extends Component {
     };
   }
 
-  async componentDidMount() {
-    const { data: colors } = await getRandom(color, n);
-    this.setState(this.state.colors);
-  }
-
   handlePageChange = (page) => {
     this.setState({ currentPage: page });
   };
@@ -37,7 +32,7 @@ class ListView extends Component {
   };
 
   getPagedData = () => {
-    const { pageSize, currentPage, colors } = this.state;
+    const { pageSize, currentPage } = this.state;
 
     const color = paginate(currentPage, pageSize);
 
